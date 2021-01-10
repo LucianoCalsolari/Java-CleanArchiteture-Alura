@@ -1,5 +1,8 @@
 package escola;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno {
 
 	/**
@@ -11,9 +14,13 @@ public class Aluno {
 	
 	//Id nao é da area de negócios
 	
-	private String cpf;
 	private String nome;
-	
+	private CPF cpf;
 	private Email email;	
 	
+	private List<Telefone> telefones = new ArrayList<>();
+
+	public void adicionarTelefone(String ddd, String numero){
+		this.telefones.add(new Telefone(ddd,numero));
+	}
 }
