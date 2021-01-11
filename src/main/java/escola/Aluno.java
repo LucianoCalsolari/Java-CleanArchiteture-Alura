@@ -23,4 +23,13 @@ public class Aluno {
 	public void adicionarTelefone(String ddd, String numero){
 		this.telefones.add(new Telefone(ddd,numero));
 	}
+
+	public Aluno(String nome, CPF cpf, Email email) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+	}
+	
+	
 }
