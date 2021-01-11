@@ -1,19 +1,21 @@
-package escola;
+package br.com.alura.escola.aluno;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class CPFTest {
+import br.com.alura.escola.aluno.Email;
+
+class EmailTest {
 
 	@Test
-	void naoDeveCriarCPFComNumeroInvalido() {
+	void naoDeveCriarEmailComEnderecoInvalido() {
 		assertThrows(IllegalArgumentException.class,
-				() -> new CPF(null));
+				() -> new Email(null));
 		assertThrows(IllegalArgumentException.class,
-				() -> new CPF(""));
+				() -> new Email(""));
 		assertThrows(IllegalArgumentException.class,
-				() -> new CPF("cpfInvalido"));
+				() -> new Email("emailInvalido"));
 	}
 
 }
