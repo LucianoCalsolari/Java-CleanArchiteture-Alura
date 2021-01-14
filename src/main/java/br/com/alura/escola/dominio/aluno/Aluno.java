@@ -1,4 +1,4 @@
-package br.com.alura.escola.aluno;
+package br.com.alura.escola.dominio.aluno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +30,39 @@ public class Aluno {
 		this.cpf = cpf;
 		this.email = email;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf.getNumero();
+	}
+
+	public void setCpf(CPF cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getEmail() {
+		return email.getEndereco();
+	}
+
+	public void setEmail(Email email) {
+		this.email = email;
+	}
+
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+	
 	
 	
 }
