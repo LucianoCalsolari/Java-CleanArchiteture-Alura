@@ -18,6 +18,8 @@ public class Aluno {
 	private CPF cpf;
 	private Email email;	
 	
+	private String senha;
+	
 	private List<Telefone> telefones = new ArrayList<>();
 
 	public void adicionarTelefone(String ddd, String numero){

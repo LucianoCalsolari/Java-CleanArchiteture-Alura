@@ -1,4 +1,4 @@
-package br.com.alura.escola.dominio.indicacao;
+package br.com.alura.escola.infra;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +11,7 @@ import br.com.alura.escola.dominio.aluno.Aluno;
 import br.com.alura.escola.dominio.aluno.AlunoNaoEncontrado;
 import br.com.alura.escola.dominio.aluno.CPF;
 import br.com.alura.escola.dominio.aluno.Email;
+import br.com.alura.escola.dominio.aluno.RepositorioDeAlunos;
 import br.com.alura.escola.dominio.aluno.Telefone;
 
 public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
@@ -66,14 +67,14 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 			ps = connection.prepareStatement(sql);
 			ps.setLong(1, id);
 			rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				String numero = rs.getString("numero");
 				String ddd = rs.getString("ddd");
 				encontrado.adicionarTelefone(ddd, numero);
 			}
 			return encontrado;
-			
+
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -90,8 +91,8 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 				CPF cpf = new CPF(rs.getString("cpf"));
 				String nome = rs.getString("nome");
 				Email email = new Email(rs.getString("email"));
-				Aluno aluno = new Aluno(nome,cpf, email);
-				
+				Aluno aluno = new Aluno(nome, cpf, email);
+
 				Long id = rs.getLong("id");
 				sql = "SELECT ddd, numero FROM TELEFONE WHERE aluno_id = ";
 				PreparedStatement psTelefone = connection.prepareStatement(sql);
@@ -104,14 +105,14 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 				}
 				alunos.add(aluno);
 			}
-			
+
 			return alunos;
-			
+
 		} catch (SQLException e) {
 
 			throw new RuntimeException(e);
 		}
-		
+
 	}
 
 }

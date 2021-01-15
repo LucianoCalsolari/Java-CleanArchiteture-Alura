@@ -1,9 +1,6 @@
-package br.com.alura.escola.dominio.indicacao;
+package br.com.alura.escola.dominio.aluno;
 
 import java.util.List;
-
-import br.com.alura.escola.dominio.aluno.Aluno;
-import br.com.alura.escola.dominio.aluno.CPF;
 
 public interface RepositorioDeAlunos {
 
